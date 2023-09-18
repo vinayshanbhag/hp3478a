@@ -40,7 +40,7 @@ byteidx|     raw     |offset|gain |chk| chksum validation |result|offset_const|g
 
 ### Sample [file](https://github.com/vinayshanbhag/hp3478a/blob/main/hp3478a_2619A46970_cal_data_dump.bin) with calibration ram data 
 ```
-@              : byte index 0: 0x40 Calibration switch off | 0x40 Calibration switch on
+@              : byte index 0: 0x40 Calibration switch off | 0x41 Calibration switch on
 @@@AGEBCDBANF  : 1:13        : 30 mV DC
 @@@@DABCB@@OC  : 14:26       : 300 mV DC
 @@@@@CBCNBNMI  : 27:39       : 3 V DC
