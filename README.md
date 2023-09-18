@@ -38,8 +38,14 @@ byteidx|     raw     |offset|gain |chk| chksum validation |result|offset_const|g
 ----------------------------------------------------------------------------------------------------------------
 ```
 
+Sample [file](https://github.com/vinayshanbhag/hp3478a/blob/main/hp3478a_2619A46970_cal_data_dump.bin) with calibration ram data 
 
+Requires [pyvisa](https://pyvisa.readthedocs.io/en/latest/introduction/getting.html) and [drivers](https://www.ni.com/en/support/downloads/drivers/download.ni-488-2.html#484357) for National Instruments GPIB-USB-HS controller.
 
-Requires pyvisa and drivers for National Instruments GPIB-USB-HS controller.
+### Hardware setup
+
+Multiple instruments can be daisy-chained with standard gpib cables. Single gpib-usb-hs interface can work with multiple devices.
+
+<img src='https://docs-be.ni.com/bundle/gpib-usb-getting-started/page/GUID-3A7DE663-6ABE-4A40-ADFB-23E069EBA6F5-a5.svg?_LANG=enus' width='500px'/>
 
 Tested with National Instruments NI GPIB-USB-HS controller IEEE 488 on Windows only. 
