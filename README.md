@@ -90,5 +90,7 @@ Tested with National Instruments NI GPIB-USB-HS controller IEEE 488 on <strong>W
 
 ### HP3478A program codes
 
+Source: [HP3478A Service Manual](https://github.com/vinayshanbhag/hp3478a/blob/main/hp3478a-Service-Manual-9018-05355.pdf) p.3-12
+
 ![image](https://github.com/vinayshanbhag/hp3478a/assets/5519039/654d088f-2da0-4233-8a05-1eb07b88a76e)
 
