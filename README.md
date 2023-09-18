@@ -11,7 +11,7 @@ Validate calibration data from file:
 py hp3478a_cal_ram_util.py -v <calibration_data_file_name>
 ```
 
-Sample validation output:
+### Sample validation output:
 ```
 ----------------------------------------------------------------------------------------------------------------
 byteidx|     raw     |offset|gain |chk| chksum validation |result|offset_const|gain_constant|range
@@ -38,7 +38,45 @@ byteidx|     raw     |offset|gain |chk| chksum validation |result|offset_const|g
 ----------------------------------------------------------------------------------------------------------------
 ```
 
-Sample [file](https://github.com/vinayshanbhag/hp3478a/blob/main/hp3478a_2619A46970_cal_data_dump.bin) with calibration ram data 
+### Sample [file](https://github.com/vinayshanbhag/hp3478a/blob/main/hp3478a_2619A46970_cal_data_dump.bin) with calibration ram data 
+```
+@              : byte index 0: 0x40 Calibration switch off | 0x40 Calibration switch on
+@@@AGEBCDBANF  : 1:13        : 30 mV DC
+@@@@DABCB@@OC  : 14:26       : 300 mV DC
+@@@@@CBCNBNMI  : 27:39       : 3 V DC
+IIIIIGBCDNNJF  : 40:52       : 30 V DC
+@@@@@@BC@OANJ  : 53:65       : 300 V DC
+@@@@@@@@@@@OO  : 66:78       : Not used
+@@A@@HBAOB@NB  : 79:91       : All AC Volts ranges
+IIIHIH@ECCOKA  : 92:104      : 30 Ω 2W,4W
+IIIIHI@EA@MKG  : 105:117     : 300 Ω 2W,4W
+IIIIIH@EMCNJG  : 118:130     : 3 KΩ 2W,4W
+IIIIIH@E@CEKM  : 131:143     : 30 KΩ 2W,4W
+IIIIII@EO@EK@  : 144:156     : 300 KΩ 2W,4W
+IIIIII@ENCDJO  : 157:169     : 3 MΩ 2W,4W
+IIIIIH@EBOEJO  : 170:182     : 30 MΩ 2W,4W
+@@@@@DCEMNOLI  : 183:195     : 300 mA DC
+@@@@@ACDCLENC  : 196:208     : 3 A DC
+@@@@@@@@@@@OO  : 209:221     : Not used
+@@@HHACBE@BNB  : 222:234     : 300 mA and 3 A AC
+@@@@@@@@@@@OO  : 235:247     : Not used
+@@@@@@@@       : 248:255     : padding 
+```
+
+### Checksum validation
+
+```
+raw bytes from calibration entry :    @    @    @    A    G    E    B    C    D    B    A    N    F
+in hex                           : 0x40 0x40 0x40 0x41 0x47 0x45 0x42 0x43 0x44 0x42 0x41 0x4e 0x46
+lower nibbles in hex (&0x0F)     :    0    0    0    1    7    5    2    3    4    2    1    E    6
+in decimal                       :    0    0    0    1    7    5    2    3    4    2    1   14    6
+sum digits                       :    ^-------------------------------------------------^           = 25
+check digits                     :                                                          ^-----^ = 14*16 + 6 = 230
+sum (should add up to 255)       :                                                                  = 255 (valid)
+
+```
+
+### Prerequisites
 
 Requires [pyvisa](https://pyvisa.readthedocs.io/en/latest/introduction/getting.html) and [drivers](https://www.ni.com/en/support/downloads/drivers/download.ni-488-2.html#484357) for National Instruments GPIB-USB-HS controller.
 
@@ -48,4 +86,9 @@ Multiple instruments can be daisy-chained with standard gpib cables. Single gpib
 
 <img src='https://docs-be.ni.com/bundle/gpib-usb-getting-started/page/GUID-3A7DE663-6ABE-4A40-ADFB-23E069EBA6F5-a5.svg?_LANG=enus' width='500px'/>
 
-Tested with National Instruments NI GPIB-USB-HS controller IEEE 488 on Windows only. 
+Tested with National Instruments NI GPIB-USB-HS controller IEEE 488 on <strong>Windows</strong> only. 
+
+### HP3478A program codes
+
+![image](https://github.com/vinayshanbhag/hp3478a/assets/5519039/654d088f-2da0-4233-8a05-1eb07b88a76e)
+
