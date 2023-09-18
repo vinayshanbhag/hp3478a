@@ -42,7 +42,7 @@ def validate(calib, print_result=True):
        print detailed result if print_result==True[default]
        returns True only if all checksums are valid
        e.g.
-           raw bytes from calibration entry : @@@AGEBCDBANF
+           raw bytes from calibration entry :    @    @    @    A    G    E    B    C    D    B    A    N    F
            in hex                           : 0x40 0x40 0x40 0x41 0x47 0x45 0x42 0x43 0x44 0x42 0x41 0x4e 0x46
            lower nibbles in hex (&0x0F)     :    0    0    0    1    7    5    2    3    4    2    1    E    6
            in decimal                       :    0    0    0    1    7    5    2    3    4    2    1   14    6
