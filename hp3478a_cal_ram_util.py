@@ -57,7 +57,7 @@ def validate(calib, print_result=True):
     result=[] # checksum validation results for each calibration entry
 
     hdr = "byteidx|     raw     |offset|gain |chk| chksum validation |result|offset_const|gain_constant|range              "
-    if print_result:print(f"\nCalibration mode is {'off' if int(r[0])==0 else 'on'}\n")
+    if print_result:print(f"\nCalibration mode is {'off' if int(r[0],16)==0 else 'on'}\n")
     if print_result:print("-"*len(hdr));print(hdr);print("-"*len(hdr))
     
     while (i<248):
